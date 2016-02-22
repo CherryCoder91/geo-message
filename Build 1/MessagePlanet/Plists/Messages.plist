@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Lattitude</key>
+		<string>51.500755</string>
+		<key>Longitude</key>
+		<string>-0.124658</string>
+		<key>Title</key>
+		<string>Hi!</string>
+		<key>Subtitle</key>
+		<string>Hello and welcome! My name is James and I am the author of GeoMessage. This is an example of how GeoMessage adds a message to the map, your message&apos;s will be added at the location you are currently at so maybe you found something really useful and want to make a note to remind you about it or have a memory of a special place you want to remember the location of. For example this message is stored at the location of Big Ben in London! Whatever message you leave you can be sure that it will be kept safe with GeoMessage! Thankyou for downloading the app and hopefully I can bring out some new features for you all in the future. To find out more visit: www.CreativeAbyss.co.uk</string>
+	</dict>
+</array>
+</plist>

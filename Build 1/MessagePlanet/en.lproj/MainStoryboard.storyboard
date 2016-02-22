@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Map Controller - First-->
+        <scene sceneID="11">
+            <objects>
+                <viewController title="First" id="2" customClass="MapController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="16">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dg0-eX-xYf">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="499" id="R18-5l-qTh"/>
+                                </constraints>
+                            </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XXU-DV-7IS">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="161" id="oTQ-wE-lOU"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Map"/>
+                                    <segment title="Satelite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <color key="tintColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="ChangeMap:" destination="2" eventType="valueChanged" id="fBT-8R-y1I"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMA-Sx-adW">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="Ift-Cr-pjr"/>
+                                    <constraint firstAttribute="width" constant="32" id="fGl-RN-zTM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="NaviIcon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="locateMe:" destination="2" eventType="touchUpInside" id="hgc-za-VQZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XXU-DV-7IS" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="5" id="6N8-YV-OHN"/>
+                            <constraint firstItem="dg0-eX-xYf" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="6OZ-4O-T2K"/>
+                            <constraint firstItem="dg0-eX-xYf" firstAttribute="top" secondItem="16" secondAttribute="top" type="default" id="8Jm-QK-1Xf"/>
+                            <constraint firstItem="rMA-Sx-adW" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="7" id="UbQ-gT-VHa"/>
+                            <constraint firstItem="dg0-eX-xYf" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="rpR-mq-sCE"/>
+                            <constraint firstAttribute="bottom" secondItem="rMA-Sx-adW" secondAttribute="bottom" constant="5" id="tJN-IH-QFf"/>
+                            <constraint firstItem="XXU-DV-7IS" firstAttribute="top" secondItem="16" secondAttribute="top" constant="4" id="zet-nN-g9q"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" image="Website.png" id="7"/>
+                    <connections>
+                        <outlet property="MessageMap" destination="dg0-eX-xYf" id="JV2-S0-ijY"/>
+                        <segue destination="kpt-JM-5KM" kind="modal" identifier="MessageDetailSegue" modalTransitionStyle="crossDissolve" id="Aup-ZD-u76"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="589" y="-123"/>
+        </scene>
+        <!--Message Detail-->
+        <scene sceneID="rqD-TX-rSt">
+            <objects>
+                <viewController id="kpt-JM-5KM" customClass="MessageDetail" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0ol-dV-abf">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="PaperTexture.png" translatesAutoresizingMaskIntoConstraints="NO" id="HpV-Mw-IIm"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJI-jl-leg">
+                                <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="text body here" translatesAutoresizingMaskIntoConstraints="NO" id="Yre-La-Rwf">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="left" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJQ-j1-vQk">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="dIb-J1-Ykb"/>
+                                    <constraint firstAttribute="width" constant="280" id="hsf-GQ-XVq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="18"/>
+                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Close Message" image="tick.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="0.68999999999999995" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnCloseMessage:" destination="kpt-JM-5KM" eventType="touchUpInside" id="rxJ-GD-6fe"/>
+                                </connections>
+                            </button>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="atd-0d-MMM">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="VMO-GB-RvD"/>
+                                </constraints>
+                            </adBannerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="atd-0d-MMM" firstAttribute="leading" secondItem="0ol-dV-abf" secondAttribute="leading" type="default" id="4GW-6k-t8m"/>
+                            <constraint firstItem="Yre-La-Rwf" firstAttribute="leading" secondItem="0ol-dV-abf" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="5J3-0R-juD"/>
+                            <constraint firstItem="xJQ-j1-vQk" firstAttribute="leading" secondItem="0ol-dV-abf" secondAttribute="leading" constant="11" id="5aM-jj-KmK"/>
+                            <constraint firstItem="HpV-Mw-IIm" firstAttribute="trailing" secondItem="0ol-dV-abf" secondAttribute="trailing" type="default" id="7b1-FL-Sgp"/>
+                            <constraint firstItem="Yre-La-Rwf" firstAttribute="top" secondItem="OJI-jl-leg" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Cop-g7-yjp"/>
+                            <constraint firstItem="HpV-Mw-IIm" firstAttribute="leading" secondItem="0ol-dV-abf" secondAttribute="leading" type="default" id="Hn3-Ua-lgk"/>
+                            <constraint firstItem="HpV-Mw-IIm" firstAttribute="top" secondItem="0ol-dV-abf" secondAttribute="top" type="default" id="UDj-Hw-oqa"/>
+                            <constraint firstItem="atd-0d-MMM" firstAttribute="top" secondItem="xJQ-j1-vQk" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="V5K-7A-dk0"/>
+                            <constraint firstItem="atd-0d-MMM" firstAttribute="bottom" secondItem="0ol-dV-abf" secondAttribute="bottom" type="default" id="Yjw-Ij-fvn"/>
+                            <constraint firstItem="xJQ-j1-vQk" firstAttribute="top" secondItem="Yre-La-Rwf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="goD-sB-iDf"/>
+                            <constraint firstItem="OJI-jl-leg" firstAttribute="trailing" secondItem="0ol-dV-abf" secondAttribute="trailing" type="default" id="jBw-gZ-AXJ"/>
+                            <constraint firstAttribute="trailing" secondItem="Yre-La-Rwf" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="k1g-dc-jt7"/>
+                            <constraint firstItem="HpV-Mw-IIm" firstAttribute="bottom" secondItem="0ol-dV-abf" secondAttribute="bottom" type="default" id="mdE-Ia-THK"/>
+                            <constraint firstItem="OJI-jl-leg" firstAttribute="top" secondItem="0ol-dV-abf" secondAttribute="top" constant="20" symbolic="YES" type="default" id="saR-Ir-EAn"/>
+                            <constraint firstItem="atd-0d-MMM" firstAttribute="trailing" secondItem="0ol-dV-abf" secondAttribute="trailing" type="default" id="vQG-6h-tun"/>
+                            <constraint firstItem="OJI-jl-leg" firstAttribute="leading" secondItem="0ol-dV-abf" secondAttribute="leading" type="default" id="yLK-pn-H7G"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lblTitle" destination="OJI-jl-leg" id="INX-Ut-TDe"/>
+                        <outlet property="myAddBanner" destination="atd-0d-MMM" id="nnO-aO-MHn"/>
+                        <outlet property="txtviewSubtitle" destination="Yre-La-Rwf" id="HsU-y7-8Nv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gqi-Fq-6aP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="999" y="-123"/>
+        </scene>
+        <!--LeaveA Message - Second-->
+        <scene sceneID="13">
+            <objects>
+                <viewController title="Second" id="3" customClass="LeaveAMessage" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="17">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="PaperTexture.png" translatesAutoresizingMaskIntoConstraints="NO" id="P0n-AY-UCL">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="328" id="srK-Ne-hlD"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Leave a Message" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="22">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="eqp-Do-7xu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="35"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Message Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eg8-BP-ucr">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="LCD-cZ-dJh"/>
+                                    <constraint firstAttribute="width" constant="150" id="eSF-Jt-Lfa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Message Body:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HgN-Tl-076">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Uug-AX-2lD"/>
+                                    <constraint firstAttribute="width" constant="135" id="q0h-Ti-YXF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.60000000000000009" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your title here" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="al2-CX-k7d">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="274" id="yGg-N5-Fk1"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="txtFieldHideKeyboard:" destination="3" eventType="editingDidEndOnExit" id="a0A-TT-dse"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Your message goes here! Tell me about something you have found or maybe you just want to leave a note aout this location!" translatesAutoresizingMaskIntoConstraints="NO" id="fDs-hy-hj3">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="296" id="QXe-Gg-SqS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="3" id="C3l-Gi-K6N"/>
+                                </connections>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSz-Sn-NfA">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="91" id="0Cb-n0-tdi"/>
+                                    <constraint firstAttribute="width" constant="332" id="JCJ-Se-1mg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="18"/>
+                                <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Post The Message!" image="stamp.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnPostMessage:" destination="3" eventType="touchUpInside" id="OYW-KY-3df"/>
+                                </connections>
+                            </button>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="RMO-h1-igf">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ALo-fX-TSe"/>
+                                </constraints>
+                            </adBannerView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.69000000000000006" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="eg8-BP-ucr" firstAttribute="top" secondItem="22" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="4so-Ge-bbz"/>
+                            <constraint firstItem="al2-CX-k7d" firstAttribute="leading" secondItem="17" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="6tx-0B-Q7X"/>
+                            <constraint firstItem="eg8-BP-ucr" firstAttribute="leading" secondItem="17" secondAttribute="leading" constant="14" id="6zp-A4-4I3"/>
+                            <constraint firstItem="HgN-Tl-076" firstAttribute="leading" secondItem="fDs-hy-hj3" secondAttribute="leading" type="default" id="KDg-CJ-pOW"/>
+                            <constraint firstItem="RMO-h1-igf" firstAttribute="top" secondItem="kSz-Sn-NfA" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="NrB-sN-xET"/>
+                            <constraint firstItem="HgN-Tl-076" firstAttribute="top" secondItem="al2-CX-k7d" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="OfO-pz-v0U"/>
+                            <constraint firstItem="kSz-Sn-NfA" firstAttribute="top" secondItem="fDs-hy-hj3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="YOH-Rr-RVD"/>
+                            <constraint firstItem="22" firstAttribute="top" secondItem="17" secondAttribute="top" type="default" id="ZFr-bu-U4A"/>
+                            <constraint firstItem="22" firstAttribute="leading" secondItem="17" secondAttribute="leading" type="default" id="ZZp-e1-Ae3"/>
+                            <constraint firstItem="fDs-hy-hj3" firstAttribute="top" secondItem="HgN-Tl-076" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dCY-W0-Ui4"/>
+                            <constraint firstItem="P0n-AY-UCL" firstAttribute="top" secondItem="17" secondAttribute="top" type="default" id="daj-8m-za9"/>
+                            <constraint firstItem="eg8-BP-ucr" firstAttribute="leading" secondItem="HgN-Tl-076" secondAttribute="leading" type="default" id="enK-QL-LYH"/>
+                            <constraint firstItem="RMO-h1-igf" firstAttribute="trailing" secondItem="17" secondAttribute="trailing" type="default" id="kNq-I6-xl9"/>
+                            <constraint firstItem="RMO-h1-igf" firstAttribute="bottom" secondItem="17" secondAttribute="bottom" type="default" id="lIV-3h-kxW"/>
+                            <constraint firstItem="P0n-AY-UCL" firstAttribute="leading" secondItem="17" secondAttribute="leading" type="default" id="oKZ-Sg-mWj"/>
+                            <constraint firstItem="al2-CX-k7d" firstAttribute="top" secondItem="eg8-BP-ucr" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="sPs-vk-DKc"/>
+                            <constraint firstItem="22" firstAttribute="trailing" secondItem="17" secondAttribute="trailing" type="default" id="tEI-5h-ZhA"/>
+                            <constraint firstItem="fDs-hy-hj3" firstAttribute="trailing" secondItem="kSz-Sn-NfA" secondAttribute="trailing" type="default" id="ua5-ba-gN6"/>
+                            <constraint firstItem="P0n-AY-UCL" firstAttribute="bottom" secondItem="17" secondAttribute="bottom" type="default" id="yUv-TY-Ao3"/>
+                            <constraint firstItem="RMO-h1-igf" firstAttribute="leading" secondItem="17" secondAttribute="leading" type="default" id="yrA-Eh-QXZ"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Leave a Message" image="Guide.png" id="6"/>
+                    <connections>
+                        <outlet property="myAddBanner" destination="RMO-h1-igf" id="KwS-Ts-TWQ"/>
+                        <outlet property="txtMessageContent" destination="fDs-hy-hj3" id="dqo-Se-owE"/>
+                        <outlet property="txtMessageTitle" destination="al2-CX-k7d" id="ZQc-Bm-SbF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="589" y="510"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="15">
+            <objects>
+                <tabBarController id="4" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="5">
+                        <rect key="frame" x="0.0" y="431" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="viewControllers" id="6hk-Mj-5Zn"/>
+                        <segue destination="3" kind="relationship" relationship="viewControllers" id="27"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="180"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Guide.png" width="30" height="30"/>
+        <image name="NaviIcon.png" width="47" height="47"/>
+        <image name="PaperTexture.png" width="640" height="1136"/>
+        <image name="Website.png" width="30" height="30"/>
+        <image name="stamp.png" width="106" height="84"/>
+        <image name="tick.png" width="43" height="40"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
